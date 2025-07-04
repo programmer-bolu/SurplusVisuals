@@ -1,3 +1,5 @@
+import Button from "../UI/Button";
+
 function Nav(){
     return(
         <nav className="fixed w-full top-0 left-0 z-50 px-6 py-4">
@@ -41,12 +43,9 @@ function Nav(){
                 </a>
               </div>
             </div>
-            <a
-              href="#"
-              className="hidden md:inline-block px-8 py-2.5 rounded-full text-white font-medium transition-all duration-300 border border-white/10 hover:scale-105 hover:bg-white/10"
-            >
+            <Button link="#" className="hidden md:inline-block">
               Get in Touch
-            </a>
+            </Button>
             <button className="md:hidden w-10 h-10 flex items-center justify-center text-white">
               <i className="ri-menu-line ri-lg"></i>
             </button>
