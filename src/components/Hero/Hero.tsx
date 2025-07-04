@@ -7,13 +7,6 @@ import { CirclePlay, Youtube, Twitch, Twitter } from "lucide-react";
 function Hero() {
   return (
     <div className="relative w-full min-h-screen overflow-hidden items-center flex justify-center">
-      <div
-        className="absolute inset-0 z-10 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to bottom, transparent 90%, #211F2E 100%)",
-        }}
-      ></div>
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <Silk
           speed={6}

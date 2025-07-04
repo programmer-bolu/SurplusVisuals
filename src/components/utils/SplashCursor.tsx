@@ -1245,16 +1245,6 @@ export default function SplashCursor({
       splat(pointer.texcoordX, pointer.texcoordY, dx, dy, pointer.color);
     }
 
-    function clickSplat(pointer: Pointer) {
-      const color = generateColor();
-      color.r *= 10;
-      color.g *= 10;
-      color.b *= 10;
-      const dx = 10 * (Math.random() - 0.5);
-      const dy = 30 * (Math.random() - 0.5);
-      splat(pointer.texcoordX, pointer.texcoordY, dx, dy, color);
-    }
-
     function splat(
       x: number,
       y: number,
@@ -1416,14 +1406,6 @@ export default function SplashCursor({
       if (range === 0) return min;
       return ((value - min) % range) + min;
     }
-
-    window.addEventListener("mousedown", (e) => {
-      const pointer = pointers[0];
-      const posX = scaleByPixelRatio(e.clientX);
-      const posY = scaleByPixelRatio(e.clientY);
-      updatePointerDownData(pointer, -1, posX, posY);
-      clickSplat(pointer);
-    });
 
     function handleFirstMouseMove(e: MouseEvent) {
       const pointer = pointers[0];
