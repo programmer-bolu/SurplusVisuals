@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 
 interface OverlayProps {
   isOpen: boolean;
@@ -6,7 +7,11 @@ interface OverlayProps {
   youtubeIframe: string;
 }
 
-const Overlay: React.FC<OverlayProps> = ({ isOpen, onClose, youtubeIframe }) => {
+const Overlay: React.FC<OverlayProps> = ({
+  isOpen,
+  onClose,
+  youtubeIframe,
+}) => {
   const [isLoading, setIsLoading] = useState(true);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -22,15 +27,15 @@ const Overlay: React.FC<OverlayProps> = ({ isOpen, onClose, youtubeIframe }) => 
 
   if (!isOpen) return null;
 
-  return (
+  return createPortal(
     <div
       onClick={handleClickOutside}
-      className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
+      className="fixed inset-0 bg-black/90 flex items-center justify-center z-[9999]"
     >
       {/* Close Button (absolute to screen) */}
       <button
         onClick={onClose}
-        className="text-white absolute top-6 right-6 text-3xl z-50"
+        className="text-white absolute top-6 right-6 text-3xl z-[9999]"
       >
         ×
       </button>
@@ -38,7 +43,7 @@ const Overlay: React.FC<OverlayProps> = ({ isOpen, onClose, youtubeIframe }) => 
       {/* Modal Content */}
       <div
         ref={modalRef}
-        className="relative bg-gray-900 rounded-[1rem] max-w-4xl w-full overflow-hidden"
+        className="relative bg-gray-900 rounded-[1rem] max-w-4xl w-full overflow-hidden z-[9999]"
       >
         {/* Loading Spinner Overlay */}
         {isLoading && (
@@ -55,10 +60,11 @@ const Overlay: React.FC<OverlayProps> = ({ isOpen, onClose, youtubeIframe }) => 
           onLoad={() => setIsLoading(false)}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-          className="relative z-20"
+          className="relative z-[9999]"
         ></iframe>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

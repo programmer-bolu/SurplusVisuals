@@ -165,7 +165,10 @@ const Silk: React.FC<SilkProps> = ({
       {/* Lighting */}
       <ambientLight intensity={0.6} />
       <directionalLight position={[5, 5, 5]} intensity={1.2} />
-      <Environment preset="studio" />
+      <Environment
+        files="/studio_small_03_1k.hdr"
+        background
+      />
 
       {/* ✅ Only ONE SilkPlane */}
       <SilkPlane ref={meshRef} uniforms={uniforms} />

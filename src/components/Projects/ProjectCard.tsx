@@ -30,7 +30,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <>
       {/* Clickable Card */}
-      <div onClick={handleCardClick} style={{ cursor: "pointer" }}>
+      <div
+        onClick={handleCardClick}
+        style={{ cursor: "pointer" }}
+        className="max-w-[517px] relative z-[60]"
+      >
         <div className="bg-gray-900 rounded-xl p-8 card-hover">
           <h4 className="text-2xl font-bold mb-4">{title}</h4>
           <p className="text-gray-300 mb-6">{description}</p>
@@ -65,3 +69,5 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 };
 
 export default ProjectCard;
+
+// /home/softtouch/.local/share/icons/cursor.png
