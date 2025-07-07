@@ -85,7 +85,7 @@ const Projects: React.FC = () => {
 
   return (
     <div className="py-[1rem] relative overflow-hidden">
-      <div className="absolute inset-0 bg-[#211F2E]">
+      <div className="absolute inset-0 bg-[#211F2E] -z-10">
         <Squares
           speed={0.5}
           squareSize={50}
@@ -93,6 +93,8 @@ const Projects: React.FC = () => {
           borderColor="#ffffff69"
           hoverFillColor="#970707"
         />
+        {/* Neon gradient overlay for glow */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/40 via-pink-500/30 to-blue-500/40 blur-2xl opacity-80 pointer-events-none" />
       </div>
 
       {/* Foreground content */}
@@ -100,8 +102,10 @@ const Projects: React.FC = () => {
         <section className="py-10 px-6">
           <div className="mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-primary text-xl mb-3">Previous Projects</h2>
-              <h3 className="text-4xl font-bold">
+              <h2 className="text-primary text-xl mb-3 drop-shadow-[0_2px_16px_rgba(139,92,246,0.7)] glow-text">
+                Previous Projects
+              </h2>
+              <h3 className="text-4xl font-bold glow-text">
                 Supercharge Your Productivity
               </h3>
             </div>
@@ -121,7 +125,7 @@ const Projects: React.FC = () => {
               <div className="text-center mt-8 flex items-center justify-center">
                 <button
                   onClick={loadMore}
-                  className="bg-[#211F2E] text-white py-2 px-6 rounded-lg hover:bg-secondary transition-colors border border-white/10 cursor-pointer flex items-center justify-between"
+                  className="text-white py-2 px-6 rounded-lg font-medium transition-all duration-300 hover:scale-105 border-2 border-white/80 cursor-pointer flex items-center justify-between"
                 >
                   Load More
                   <ChevronDown height={15} />
@@ -131,6 +135,15 @@ const Projects: React.FC = () => {
           </div>
         </section>
       </div>
+      {/* Add glowing effect styles */}
+      <style>{`
+        .glow-text {
+          text-shadow: 0 0 16px #ec4899, 0 0 32px #8b5cf6, 0 0 8px #38bdf8;
+        }
+        .glow-btn {
+          box-shadow: 0 0 24px 4px #ec4899aa, 0 0 48px 8px #8b5cf6aa;
+        }
+      `}</style>
     </div>
   );
 };

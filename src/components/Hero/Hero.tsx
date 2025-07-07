@@ -7,14 +7,15 @@ import { CirclePlay, Youtube, Twitch, Twitter } from "lucide-react";
 function Hero() {
   return (
     <div className="relative w-full min-h-screen overflow-hidden items-center flex justify-center">
-      <div className="absolute inset-0 -z-10 pointer-events-none">
+      <div className="absolute inset-0 -z-10 pointer-events-none bg-[#211F2E]">
         <Silk
           speed={6}
           scale={1}
-          color="#211F2E"
+          color="#211F2E  "
           noiseIntensity={0}
-          rotation={0}
+          rotation={0.2}
         />
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/40 via-pink-500/30 to-blue-500/40 blur-2xl opacity-80 pointer-events-none" />
       </div>
 
       <Nav />
@@ -33,7 +34,7 @@ function Hero() {
             rootMargin="-100px"
             textAlign="center"
           />
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 max-w-5xl leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 max-w-5xl leading-tight drop-shadow-[0_2px_32px_rgba(139,92,246,0.7)] text-white">
             Visual Storytelling Done Right ·
             <span className="gradient-text">
               {"· Stunning Edits, Seamless Results"}
@@ -53,15 +54,15 @@ function Hero() {
               href="#"
               className="flex items-center gap-2 text-xl font-medium hover:text-primary transition-colors"
             >
-              <CirclePlay></CirclePlay>
+              <CirclePlay className="glow-icon" />
               View Projects
             </a>
           </div>
           <div className="flex items-center gap-4 mt-12">
             <div className="flex space-x-1">
-              <Youtube></Youtube>
-              <Twitch></Twitch>
-              <Twitter></Twitter>
+              <Youtube className="glow-icon" />
+              <Twitch className="glow-icon" />
+              <Twitter className="glow-icon" />
             </div>
             <div className="flex items-center gap-2">
               <p className="text-gray-300">

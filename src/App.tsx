@@ -3,6 +3,7 @@ import About from "./components/About/About";
 import SplashCursor from "./components/utils/SplashCursor";
 import Projects from "./components/Projects/Project";
 import Boluwatife from "./components/Wm";
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <Projects/>
       <About/>
       <Boluwatife/>
-      
+      <Contact/>
     </>
   );
 }
