@@ -16,7 +16,10 @@ const VideoOverlay: React.FC<VideoOverlayProps> = ({ videoUrl, onClose }) => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [error, setError] = useState(false);
-  const [videoDimensions, setVideoDimensions] = useState({ width: 0, height: 0 });
+  const [videoDimensions, setVideoDimensions] = useState({
+    width: 0,
+    height: 0,
+  });
 
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const backgroundVideoRef = useRef<HTMLVideoElement | null>(null);
@@ -30,7 +33,10 @@ const VideoOverlay: React.FC<VideoOverlayProps> = ({ videoUrl, onClose }) => {
     const handleLoadedData = () => {
       setIsLoading(false);
       setDuration(video.duration);
-      setVideoDimensions({ width: video.videoWidth, height: video.videoHeight });
+      setVideoDimensions({
+        width: video.videoWidth,
+        height: video.videoHeight,
+      });
     };
 
     const handleTimeUpdate = () => setCurrentTime(video.currentTime);
@@ -117,29 +123,31 @@ const VideoOverlay: React.FC<VideoOverlayProps> = ({ videoUrl, onClose }) => {
   if (error) {
     return (
       <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
-        <div className="text-white text-center">
-          <div className="text-xl mb-2">Error loading video</div>
-          <div className="text-gray-400">Unable to play this video</div>
+        <div className="text-white text-center px-4">
+          <div className="text-lg sm:text-xl mb-2">Error loading video</div>
+          <div className="text-gray-400 text-sm sm:text-base">
+            Unable to play this video
+          </div>
         </div>
         <Button
           variant="ghost"
           size="icon"
           onClick={onClose}
-          className="absolute top-4 right-4 text-white"
+          className="absolute top-2 sm:top-4 right-2 sm:right-4 text-white"
         >
-          <X size={24} />
+          <X size={20} className="sm:w-6 sm:h-6" />
         </Button>
       </div>
     );
   }
 
   return (
-    <div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
+    <div className="fixed inset-0 bg-black z-50 flex items-center justify-center p-2 sm:p-4">
       {/* Background blurred video */}
       <video
         ref={backgroundVideoRef}
         src={videoUrl}
-        className="absolute inset-0 w-full h-screen object-cover filter blur-xl opacity-50"
+        className="absolute inset-0 w-full h-full object-cover filter blur-xl opacity-50"
         muted
         loop
       />
@@ -147,13 +155,13 @@ const VideoOverlay: React.FC<VideoOverlayProps> = ({ videoUrl, onClose }) => {
       {/* Loading spinner */}
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white" />
+          <div className="animate-spin rounded-full h-8 w-8 sm:h-12 sm:w-12 border-b-2 border-white" />
         </div>
       )}
 
       {/* Main video */}
       <div
-        className="relative flex items-center justify-center"
+        className="relative flex items-center justify-center w-full h-full"
         onMouseMove={handleMouseMove}
       >
         <video
@@ -161,7 +169,7 @@ const VideoOverlay: React.FC<VideoOverlayProps> = ({ videoUrl, onClose }) => {
           src={videoUrl}
           width={videoDimensions.width}
           height={videoDimensions.height}
-          style={{ maxWidth: "100%", maxHeight: "100vh", objectFit: "contain" }}
+          style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
           className="cursor-pointer"
           onClick={handleVideoClick}
           playsInline
@@ -174,14 +182,14 @@ const VideoOverlay: React.FC<VideoOverlayProps> = ({ videoUrl, onClose }) => {
           }`}
         >
           {/* Close button */}
-          <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/80 to-transparent p-4">
+          <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/80 to-transparent p-2 sm:p-4">
             <Button
               variant="ghost"
               size="icon"
               onClick={onClose}
               className="text-white"
             >
-              <X size={24} />
+              <X size={20} className="sm:w-6 sm:h-6" />
             </Button>
           </div>
 
@@ -192,16 +200,20 @@ const VideoOverlay: React.FC<VideoOverlayProps> = ({ videoUrl, onClose }) => {
                 variant="secondary"
                 size="icon"
                 onClick={togglePlayPause}
-                className="pointer-events-auto rounded-full bg-black/50 text-white hover:bg-black/70"
+                className="pointer-events-auto rounded-full bg-black/50 text-white hover:bg-black/70 w-12 h-12 sm:w-16 sm:h-16"
               >
-                {isPlaying ? <Pause size={32} /> : <Play size={32} />}
+                {isPlaying ? (
+                  <Pause size={24} className="sm:w-8 sm:h-8" />
+                ) : (
+                  <Play size={24} className="sm:w-8 sm:h-8" />
+                )}
               </Button>
             </div>
           )}
 
           {/* Bottom controls */}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-            <div className="flex items-center gap-4">
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2 sm:p-4">
+            <div className="flex items-center gap-2 sm:gap-4">
               {/* Play/Pause */}
               <Button
                 variant="ghost"
@@ -210,11 +222,15 @@ const VideoOverlay: React.FC<VideoOverlayProps> = ({ videoUrl, onClose }) => {
                 disabled={isLoading}
                 className="text-white"
               >
-                {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+                {isPlaying ? (
+                  <Pause size={16} className="sm:w-5 sm:h-5" />
+                ) : (
+                  <Play size={16} className="sm:w-5 sm:h-5" />
+                )}
               </Button>
 
               {/* Time + Progress */}
-              <span className="text-white text-sm min-w-[35px]">
+              <span className="text-white text-xs sm:text-sm min-w-[30px] sm:min-w-[35px]">
                 {formatTime(currentTime)}
               </span>
               <Slider
@@ -224,7 +240,7 @@ const VideoOverlay: React.FC<VideoOverlayProps> = ({ videoUrl, onClose }) => {
                 onValueChange={handleProgressChange}
                 className="flex-1"
               />
-              <span className="text-white text-sm min-w-[35px]">
+              <span className="text-white text-xs sm:text-sm min-w-[30px] sm:min-w-[35px]">
                 {formatTime(duration)}
               </span>
 
@@ -235,7 +251,11 @@ const VideoOverlay: React.FC<VideoOverlayProps> = ({ videoUrl, onClose }) => {
                 onClick={toggleMute}
                 className="text-white"
               >
-                {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+                {isMuted ? (
+                  <VolumeX size={16} className="sm:w-5 sm:h-5" />
+                ) : (
+                  <Volume2 size={16} className="sm:w-5 sm:h-5" />
+                )}
               </Button>
             </div>
           </div>
