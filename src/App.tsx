@@ -48,43 +48,55 @@ const App: React.FC = () => {
   const projects = [
     {
       id: 1,
-      title: "Cinematic Commercial",
-      genre: "Commercial",
+      title: "Youtube Short",
+      genre: "Shorts",
+      description:
+        "High-impact animated intro designed for long-form video content, featuring dynamic motion graphics, smooth transitions, and professional branding for an engaging first impression.",
       image: Project1,
       videoUrl: ProjectVideo,
     },
     {
       id: 2,
-      title: "Music Video",
-      genre: "Music",
+      title: "Ad's",
+      genre: "Commercial",
+  description:
+        "High-impact animated intro designed for long-form video content, featuring dynamic motion graphics, smooth transitions, and professional branding for an engaging first impression.",      
       image: Project2,
       videoUrl: ProjectVideo1,
     },
     {
       id: 3,
-      title: "Documentary Film",
-      genre: "Documentary",
+      title: "Live Interview",
+      genre: "Live Interview",
+      description:
+        "High-impact animated intro designed for long-form video content, featuring dynamic motion graphics, smooth transitions, and professional branding for an engaging first impression.",
       image: Project3,
       videoUrl: ProjectVideo2,
     },
     {
       id: 4,
-      title: "Fashion Film",
-      genre: "Fashion",
+      title: "Trending Commercial",
+      genre: "Commercial",
+      description:
+        "High-impact animated intro designed for long-form video content, featuring dynamic motion graphics, smooth transitions, and professional branding for an engaging first impression.",
       image: Project4,
       videoUrl: ProjectVideo3,
     },
     {
       id: 5,
-      title: "Corporate Video",
-      genre: "Corporate",
+      title: "YouTube Intro",
+      genre: "Content Creation",
+      description:
+        "High-impact animated intro designed for long-form video content, featuring dynamic motion graphics, smooth transitions, and professional branding for an engaging first impression.",
       image: Project5,
       videoUrl: ProjectVideo4,
     },
     {
       id: 6,
-      title: "Short Film",
-      genre: "Film",
+      title: "Youtube Intro",
+      genre: "Content Creation",
+      description:
+        "High-impact animated intro designed for long-form video content, featuring dynamic motion graphics, smooth transitions, and professional branding for an engaging first impression.",
       image: Project6,
       videoUrl: ProjectVideo5,
     },

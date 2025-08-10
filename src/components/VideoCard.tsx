@@ -5,7 +5,13 @@ export default function VideoCard({
   project,
   handleClick,
 }: {
-  project: { id: number; title: string; genre: string; image: string };
+  project: {
+    id: number;
+    title: string;
+    genre: string;
+    image: string;
+    description?: string;
+  };
   handleClick: () => void;
 }) {
   return (
@@ -39,8 +45,7 @@ export default function VideoCard({
           </span>
         </div>
         <p className="text-white/60 text-xs sm:text-sm">
-          Professional color grading and post-production work showcasing
-          cinematic visual storytelling techniques.
+          {project.description}
         </p>
       </div>
     </Card>
