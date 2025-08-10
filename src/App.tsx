@@ -190,7 +190,7 @@ const App: React.FC = () => {
         ref={heroRef}
         className="min-h-screen relative flex items-center justify-center overflow-hidden text-white"
         style={{
-          backgroundImage: `url('https://readdy.ai/api/search-image?query=professional%20video%20editing%20studio%20with%20modern%20equipment%20cinematic%20lighting%20and%20dark%20atmosphere%20with%20subtle%20blue%20accents%20perfect%20for%20video%20editor%20portfolio%20background&width=1440&height=1024&seq=herobg&orientation=landscape')`,
+          backgroundImage: `url('/hero.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
