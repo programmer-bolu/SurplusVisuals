@@ -137,7 +137,7 @@ const App: React.FC = () => {
                 alt="Surplus Visuals"
                 className="h-6 sm:h-8 w-auto object-contain"
               />
-              <span className="text-white text-base sm:text-lg font-semibold hidden sm:inline">
+              <span className="text-white text-sm sm:text-lg font-semibold sm:inline">
                 SurplusVisuals
               </span>
             </div>
@@ -317,7 +317,7 @@ const App: React.FC = () => {
               <div className="text-lg sm:text-xl md:text-2xl font-bold text-purple-400">
                 24hr
               </div>
-              <div className="text-xs text-white/70">Average Turnaround</div>
+              <div className="text-xs text-white/70">Average Reponse Time</div>
             </div>
           </div>
 
