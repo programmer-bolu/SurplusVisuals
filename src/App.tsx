@@ -59,8 +59,8 @@ const App: React.FC = () => {
       id: 2,
       title: "Ad's",
       genre: "Commercial",
-  description:
-        "High-impact animated intro designed for long-form video content, featuring dynamic motion graphics, smooth transitions, and professional branding for an engaging first impression.",      
+      description:
+        "High-impact animated intro designed for long-form video content, featuring dynamic motion graphics, smooth transitions, and professional branding for an engaging first impression.",
       image: Project2,
       videoUrl: ProjectVideo1,
     },
@@ -323,7 +323,10 @@ const App: React.FC = () => {
 
           {/* Enhanced Call-to-Actions */}
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 pt-1 sm:pt-2 md:pt-4">
-            <button className="group px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-bold hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25 flex items-center gap-1.5 sm:gap-2 justify-center text-xs sm:text-sm md:text-base">
+            <button
+              className="group px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-bold hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25 flex items-center gap-1.5 sm:gap-2 justify-center text-xs sm:text-sm md:text-base"
+              onClick={() => scrollToSection(portfolioRef)}
+            >
               <span>View Portfolio</span>
               <svg
                 className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform"
@@ -339,7 +342,10 @@ const App: React.FC = () => {
                 />
               </svg>
             </button>
-            <button className="group px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold hover:bg-white/20 transition-all duration-300 transform hover:scale-105 flex items-center gap-1.5 sm:gap-2 justify-center text-xs sm:text-sm md:text-base">
+            <button
+              className="group px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold hover:bg-white/20 transition-all duration-300 transform hover:scale-105 flex items-center gap-1.5 sm:gap-2 justify-center text-xs sm:text-sm md:text-base"
+              onClick={() => scrollToSection(contactRef)}
+            >
               <span>Start Project</span>
               <svg
                 className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 group-hover:rotate-12 transition-transform"
